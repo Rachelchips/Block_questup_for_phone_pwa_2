@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>专注方块</title>
+    <meta name="theme-color" content="#c89b6d" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="专注方块" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="专注方块" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/favicon-32.png?v=3" sizes="32x32" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png?v=3" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app-shell">
+      <canvas id="main-canvas" aria-label="QUESTUP 像素自律 RPG"></canvas>
+      <canvas id="overlay-canvas" aria-hidden="true"></canvas>
+      <input id="canvas-input" type="text" autocomplete="off" spellcheck="false" />
+    </div>
+    <script src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("./sw.js").catch(function (error) {
+            console.warn("Service worker registration failed:", error);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
